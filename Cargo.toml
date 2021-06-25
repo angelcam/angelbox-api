@@ -1,0 +1,30 @@
+[package]
+name = "angelbox-api"
+version = "0.1.0"
+authors = ["Angelcam, Inc. <dev@angelcam.com>"]
+license = "Apache-2.0"
+readme  = "README.md"
+edition = "2018"
+
+[dependencies]
+actix-web = "4.0.0-beta.7"
+clap = "2"
+flexi_logger = "0.18"
+futures = "0.3"
+libc = "0.2"
+log = "0.4"
+
+[dependencies.serde_json]
+version = "1"
+features = ["preserve_order"]
+
+[dependencies.tokio]
+version = "1"
+features = ["process"]
+
+[profile.release]
+debug = false
+panic = "abort"
+lto = true
+codegen-units = 1
+incremental = false
